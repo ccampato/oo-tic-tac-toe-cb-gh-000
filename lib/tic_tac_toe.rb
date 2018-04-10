@@ -86,7 +86,7 @@ class TicTacToe
       end
     end
     if win == []
-      nil
+      false
     else
       win.to_ary
     end
