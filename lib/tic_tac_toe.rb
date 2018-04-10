@@ -41,6 +41,16 @@ class TicTacToe
     end
   end
 
+  def turn_count
+    counter = 0
+    @board.each do |occupied|
+      if occupied != " "
+        counter += 1
+      end
+    end
+    counter
+  end
+
   def turn
     puts "Please enter 1-9:"
     input = gets.strip
@@ -52,5 +62,7 @@ class TicTacToe
       turn
     end
   end
+
+  
 
 end
