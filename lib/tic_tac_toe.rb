@@ -92,5 +92,56 @@ class TicTacToe
     end
   end
 
+  def full?
+    if @board.detect{|empty_space| empty_space == " "}
+      false
+    else
+      true
+    end
+  end
 
+  def draw?
+    if full? && !won?
+      true
+    else
+      false
+    end
+  end
+
+  def over?
+    if won? || draw? || full?
+      true
+    else
+      false
+    end
+  end
+
+  def winner
+    if won?
+      array = won?
+      index1 = array[0]
+      if @board[index1] == "X"
+        "X"
+      elsif @board[index1] == "O"
+        "O"
+      elsif draw?
+        nil
+      end
+    end
+  end
+
+
+  def play
+    count = 0
+    until over?
+      turn
+    end
+    if won?
+      puts "Congratulations #{winner(board)}!"
+    else
+      if draw?
+        puts "Cat's Game!"
+      end
+    end
+  end
 end
