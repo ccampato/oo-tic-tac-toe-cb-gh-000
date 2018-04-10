@@ -71,4 +71,26 @@ class TicTacToe
     end
   end
 
+  def won?(board)
+    win = []
+    WIN_COMBINATIONS.each do |win_combination|
+      index_1 = win_combination[0]
+      index_2 = win_combination[1]
+      index_3 = win_combination[2]
+      win_combination.each do |index|
+        if @board[index_1] == "X" && @board[index_2] == "X" && @board[index_3] == "X"
+          win << index
+        elsif @board[index_1] == "O" && @board[index_2] == "O" && @board[index_3] == "O"
+          win << index
+        end
+      end
+    end
+    if win == []
+      nil
+    else
+      win.to_ary
+    end
+  end
+
+
 end
